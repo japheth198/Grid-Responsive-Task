@@ -1,0 +1,103 @@
+:root {
+    --main-padding: 5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.8fr 2fr 1.5fr 1.5fr 1fr;
+    grid-template-areas: 
+    "HEADER MENU MENU MENU"
+    "HERO HERO HERO HERO"
+    "MAIN MAIN content1 EXTRA"
+    "MAIN MAIN content1 IMAGE"
+    "BANNER BANNER BANNER BANNER";
+    gap: 5px;
+}
+
+header {
+    background: rgb(192, 60, 9);
+    padding: var(--main-padding);
+    grid-area: HEADER;
+}
+
+main {
+    background: rgb(23, 22, 21);
+    padding: var(--main-padding);
+    grid-area: MAIN;
+}
+
+#hero {
+    background: rgb(245, 205, 8);
+    padding: var(--main-padding);
+    grid-area: HERO;
+}
+
+#content1 {
+    padding: var(--main-padding);
+    grid-area: content1;
+}
+
+#menu {
+    background: rgb(235, 97, 35);
+    padding: var(--main-padding);
+    grid-area: MENU;
+}
+
+#image {
+    background: rgb(103, 160, 50);
+    padding: var(--main-padding);
+    grid-area: IMAGE;
+}
+
+#extra {
+    background: rgb(95, 43, 147);
+    padding: var(--main-padding);
+    grid-area: EXTRA;
+}
+
+footer {
+    background: rgb(92, 16, 9);
+    padding: var(--main-padding);
+    grid-area: BANNER;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 
+        "HEADER HEADER HEADER"
+        "HERO HERO HERO"
+        "HERO HERO HERO"
+        "MENU MAIN MAIN"
+        "MENU MAIN MAIN"
+        "MENU BANNER BANNER"
+        "MENU EXTRA IMAGE"        
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr 1.5fr 1.5fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "HEADER"
+        "MENU"
+        "HERO"
+        "MAIN"
+        "BANNER"
+        "EXTRA"
+        "IMAGE"        
+    }
+}
